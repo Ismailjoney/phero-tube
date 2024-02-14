@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section class="px-8 mt-8">
+        <div class="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" checked="checked" />
+            <div class="collapse-title text-xl font-medium">
+                Discuss the scope of var, let, and const..?
+            </div>
+            <div class="collapse-content">
+                <p>In JavaScript, the scope of variables declared with var, let, and const differs in terms of their
+                    visibility and lifetime within the program. Here's a brief overview of each:
+
+                    var:
+
+                    Variables declared with var have function scope, meaning they are accessible throughout the function
+                    in which they are declared.
+                    If declared outside of any function, var variables have global scope, making them accessible
+                    throughout the entire script.
+                    They are subject to hoisting, which means that the variable declaration is moved to the top of its
+                    containing function or global scope during the compilation phase, while the assignment remains in
+                    place. This can sometimes lead to unexpected behavior.
+                    Example:
+                    javascript
+                    Copy code
+                    function example() {
+                    var x = 10;
+                    if (true) {
+                    var y = 20;
+                    }
+                    console.log(x); // Output: 10
+                    console.log(y); // Output: 20 (due to hoisting)
+                    }
+                    example();
+                    console.log(x); // Error: x is not defined (outside the function scope)
+                    console.log(y); // Output: 20 (global scope)
+                    let:
+
+                    Variables declared with let have block scope, meaning they are accessible only within the block in
+                    which they are declared (a block is typically defined by curly braces {}).
+                    They are not hoisted, which means that they are not accessible before the line they are declared on.
+                    let allows for better control over variable scoping and helps prevent certain types of bugs, such as
+                    accidental variable redeclarations within the same block.
+                    Example:
+                    javascript
+                    Copy code
+                    function example() {
+                    let x = 10;
+                    if (true) {
+                    let y = 20;
+                    console.log(x); // Output: 10
+                    console.log(y); // Output: 20
+                    }
+                    console.log(x); // Output: 10
+                    console.log(y); // Error: y is not defined (outside the block scope)
+                    }
+                    example();
+                    const:
+
+                    Constants declared with const also have block scope, similar to let.
+                    However, they must be initialized with a value upon declaration, and their value cannot be changed
+                    or reassigned once initialized. This makes them immutable.
+                    Like let, const variables are not hoisted and are only accessible within the block in which they are
+                    defined.
+                    Example:
+                    javascript
+                    Copy code
+                    function example() {
+                    const x = 10;
+                    if (true) {
+                    const y = 20;
+                    console.log(x); // Output: 10
+                    console.log(y); // Output: 20
+                    }
+                    console.log(x); // Output: 10
+                    console.log(y); // Error: y is not defined (outside the block scope)
+                    }
+                    example();
+                    In general, it's recommended to use let and const over var due to their more predictable behavior
+                    and better scoping rules. Use const for values that should not change, and let for variables that
+                    might be reassigned.
+                </p>
+            </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" />
+            <div class="collapse-title text-xl font-medium">
+                Tell us the use cases of null and undefined..?
+            </div>
+            <div class="collapse-content">
+                <p>The concepts of null and undefined are used in programming languages, including JavaScript, to
+                    represent the absence of a meaningful value. While they might seem similar, they have distinct use
+                    cases:
+
+                    null:
+
+                    null is a primitive value in JavaScript that represents the intentional absence of any object value.
+                    It's often used as a placeholder to indicate that a variable or object property does not currently
+                    have a value, but it is expected to have one at some point.
+                    Developers might explicitly set a variable or property to null to indicate that it has no value or
+                    to reset it to a neutral state.
+                    Example use cases:
+                    Initializing variables that are expected to hold objects but don't yet have a meaningful value.
+                    Indicating that a function parameter is optional and not required to have a value.
+                    Explicitly clearing out the value of a variable or property.
+                    undefined:
+
+                    undefined is a primitive value in JavaScript that indicates that a variable has been declared but
+                    has not been assigned a value.
+                    It's automatically assigned to variables that have been declared but not initialized, or to object
+                    properties that do not exist.
+                    Unlike null, which is explicitly set, undefined usually occurs implicitly when a value is not
+                    provided or assigned.
+                    Example use cases:
+                    Variables that have been declared but not yet assigned a value.
+                    Object properties that have not been defined or do not exist.
+                    Return value of functions that do not explicitly return anything (by default, JavaScript functions
+                    return undefined).
+                    In summary, null is used to represent the intentional absence of a value, while undefined typically
+                    indicates an uninitialized or non-existent value. Understanding the distinction between them is
+                    important for writing clean and predictable code.
+                </p>
+            </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" />
+            <div class="collapse-title text-xl font-medium">
+                What do you mean by REST API..?
+            </div>
+            <div class="collapse-content">
+                <p>REST API stands for Representational State Transfer Application Programming Interface. It is an
+                    architectural style for designing networked applications. RESTful APIs are based on the principles
+                    of REST, which include:
+
+                    Stateless communication: Each request from a client to the server must contain all the necessary
+                    information for the server to understand and fulfill the request. The server doesn't store any
+                    client state between requests.
+
+                    Client-server architecture: The client and server are separate and independent, allowing them to
+                    evolve separately. This enhances scalability and simplifies component implementation.
+
+                    Uniform interface: RESTful APIs expose resources as unique URIs (Uniform Resource Identifiers) and
+                    use standard HTTP methods (GET, POST, PUT, DELETE) to perform actions on those resources.
+                    Additionally, they often utilize standard media types such as JSON or XML for data representation.
+
+                    Cacheability: Responses from a server can be marked as cacheable or non-cacheable, allowing clients
+                    to reuse responses and improve performance.
+
+                    Layered system: A client interacts with the RESTful API without knowing whether it is connected
+                    directly to the server or through an intermediary (such as a proxy), enhancing flexibility and
+                    scalability.
+
+                    RESTful APIs are widely used for building web services due to their simplicity, scalability, and
+                    compatibility with HTTP, which is the protocol of the web. They are commonly used in client-server
+                    communication for web and mobile applications, allowing different software systems to interact with
+                    each other over a network.</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

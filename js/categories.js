@@ -70,5 +70,11 @@ const displayCategoriesCard = (cardData) => {
 }
 
 
+//sortBtn :
+document.getElementById('sortBtn').addEventListener('click', function(){
+    console.log('jhvhjv')
+     
+})
+
 loadCategories()
 showAllCategoriesData()
