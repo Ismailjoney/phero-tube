@@ -1,5 +1,5 @@
 function allCategoryItemsDataRepeation (targetitemsId, data) {
-    
+    spinner(true)
     data.forEach(elem => {
         const div = document.createElement('div')
         div.classList = "card w-70 bg-base-100 shadow-xl gap-4 mb-4"
@@ -20,4 +20,16 @@ function allCategoryItemsDataRepeation (targetitemsId, data) {
     `
         targetitemsId.appendChild(div)
     })
+    spinner()
+}
+
+//spinner
+const spinner = (isLoading) => {
+    const targetSpinnerId = document.getElementById('loader')
+     
+    if(isLoading){
+        targetSpinnerId.classList.remove('hidden')
+    }else{
+        targetSpinnerId.classList.add('hidden') 
+    }
 }

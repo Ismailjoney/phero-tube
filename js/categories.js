@@ -55,7 +55,7 @@ const categoryIdClick = async (id) => {
 
 const displayCategoriesCard = (cardData) => {
     // console.log(cardData)
-    
+    spinner(true)
     const targetitemsId = document.getElementById('cardItems');
     const noDataTargetId = document.getElementById('noData')
     targetitemsId.textContent = ''
