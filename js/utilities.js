@@ -1,5 +1,4 @@
-function allCategoryItemsDataRepeation (targetitemsId, data) {
-    spinner(true)
+function allCategoryItemsDataRepeation(targetitemsId, data) {
     data.forEach(elem => {
         const div = document.createElement('div')
         div.classList = "card w-70 bg-base-100 shadow-xl gap-4 mb-4"
@@ -16,20 +15,20 @@ function allCategoryItemsDataRepeation (targetitemsId, data) {
                     <p>views : ${elem.others.views || 'no data'}</p>
                 </div>
             </div>
-
     `
         targetitemsId.appendChild(div)
+        spinner()
     })
-    spinner()
+
+
 }
 
 //spinner
 const spinner = (isLoading) => {
     const targetSpinnerId = document.getElementById('loader')
-     
-    if(isLoading){
+    if (isLoading) {
         targetSpinnerId.classList.remove('hidden')
-    }else{
-        targetSpinnerId.classList.add('hidden') 
+    } else {
+        targetSpinnerId.classList.add('hidden')
     }
 }
