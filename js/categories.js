@@ -1,6 +1,6 @@
 
 //loaded all category :
-const loadCategories = async ( ) => {
+const loadCategories = async () => {
     spinner(true)
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/categories`)
     const data = await res.json()
@@ -15,16 +15,33 @@ const showAllCategoriesData = async () => {
 }
 
 //make card all categoryData :
-const allCategoryItems = (data) => {
+allCategoryItems = (data) => {
     const targetitemsId = document.getElementById('cardItems');
     targetitemsId.textContent = ''
     allCategoryItemsDataRepeation(targetitemsId, data)
+
 }
+
+document.getElementById("sortBtn").addEventListener("click", async () => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`);
+    const data = await res.json();
+    const sortedData = data.data.sort((a, b) => {
+        let viewsA = parseFloat(a.others.views.replace('K', ''));
+        let viewsB = parseFloat(b.others.views.replace('K', ''));
+        return viewsB - viewsA;
+    });
+    allCategoryItems(sortedData); 
+});
+
+
+
+
+
 
 
 //show all actegories :
-const displayCategories = (categories ) => {
-   
+const displayCategories = (categories) => {
+
     const targetNavId = document.getElementById('navItems')
     categories.forEach(element => {
 
@@ -51,7 +68,7 @@ const categoryIdClick = async (id) => {
 
 
 const displayCategoriesCard = (cardData) => {
-    
+
     const targetitemsId = document.getElementById('cardItems');
     const noDataTargetId = document.getElementById('noData')
     targetitemsId.textContent = ''
@@ -67,5 +84,5 @@ const displayCategoriesCard = (cardData) => {
 }
 
 
-loadCategories( )
+loadCategories()
 showAllCategoriesData()
